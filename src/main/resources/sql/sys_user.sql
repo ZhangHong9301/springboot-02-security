@@ -1,0 +1,5 @@
+
+CREATE TABLE sys_user (id int(10) NOT NULL, username varchar(50), realname varchar(50), password varchar(500), createDate date, lastLoginTime date, enabled int(5), accountNonExpired int(5), accountNonLocked int(5), credentialsNonExpired int(5)) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+INSERT INTO sys_user (id, username, realname, password, createDate, lastLoginTime, enabled, accountNonExpired, accountNonLocked, credentialsNonExpired) VALUES (1, 'user', '普通用户', '$2a$10$QmWE/iyQVnh8jS1huBIQDek9dquicqHNmOY9TmS8EsPPQk5CUX9Ba', '2018-05-17', '2018-05-17', 1, 1, 1, 1);
+INSERT INTO sys_user (id, username, realname, password, createDate, lastLoginTime, enabled, accountNonExpired, accountNonLocked, credentialsNonExpired) VALUES (2, 'zh', '经理', '$2a$10$QmWE/iyQVnh8jS1huBIQDek9dquicqHNmOY9TmS8EsPPQk5CUX9Ba', '2018-05-17', '2018-05-17', 1, 1, 1, 1);
+INSERT INTO sys_user (id, username, realname, password, createDate, lastLoginTime, enabled, accountNonExpired, accountNonLocked, credentialsNonExpired) VALUES (3, 'admin', '管理员', '$2a$10$CBjcZLP.82xwE/xCFCpDkOGYM0SpyYHGS6QNzg.hffAV3q.s3LKCm', '2018-05-17', '2018-05-17', 1, 1, 1, 1);
