@@ -43,9 +43,9 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter{
         //super.configure(http);
         //定制请求的授权规则
         http.authorizeRequests().antMatchers("/").permitAll()
-                .antMatchers("/level1/**").hasRole("VIP1")
-                .antMatchers("/level2/**").hasRole("VIP2")
-                .antMatchers("/level3/**").hasRole("VIP3");
+                .antMatchers("/level1/**").hasAuthority("VIP1")
+                .antMatchers("/level2/**").hasAuthority("VIP2")
+                .antMatchers("/level3/**").hasAuthority("VIP3");
 
         //开启自动配置的登录功能
         //1、/login来到登录页

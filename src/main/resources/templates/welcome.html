@@ -20,7 +20,7 @@
 
 <hr>
 
-<div>  <!--sec:authorize="hasRole('VIP1')"-->
+<div sec:authorize="hasAuthority('VIP1')">
 	<h3>普通武功秘籍</h3>
 	<ul>
 		<li><a th:href="@{/level1/1}">罗汉拳</a></li>
@@ -30,7 +30,7 @@
 
 </div>
 
-<div sec:authorize="hasRole('VIP2')">
+<div sec:authorize="hasAuthority('VIP2')">
 	<h3>高级武功秘籍</h3>
 	<ul>
 		<li><a th:href="@{/level2/1}">太极拳</a></li>
@@ -40,7 +40,7 @@
 
 </div>
 
-<div sec:authorize="hasRole('VIP3')">
+<div sec:authorize="hasAuthority('VIP3')">
 	<h3>绝世武功秘籍</h3>
 	<ul>
 		<li><a th:href="@{/level3/1}">葵花宝典</a></li>
