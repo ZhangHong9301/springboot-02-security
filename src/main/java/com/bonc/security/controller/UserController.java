@@ -21,11 +21,17 @@ public class UserController {
     UserService userService;
 
     @ResponseBody
-    @GetMapping("/update")
+    @GetMapping("/update/user")
     public String setPassword(@RequestParam(value = "password") String password){
 
         String isOK = userService.updatePassword(password);
 
         return isOK;
+    }
+
+    @GetMapping("/update")
+    public String pagePassword(){
+
+        return "pages/updatepassword";
     }
 }

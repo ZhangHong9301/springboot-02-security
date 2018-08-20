@@ -25,13 +25,13 @@ public class UserService {
      * @param: [pwd]  
      * @Return: java.lang.String
      * @Author: Mr.Zhang 
-     * @Date: 2018/8/20 16:56
+     * @Date: 2018/8/20 17:00
      */
     public String updatePassword(String pwd){
 
         String username = getCurrentUsername();
 
-        System.out.println("username:"+username);
+        System.out.println("CurrentUser:"+username);
 
         if (username != null){
             PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
