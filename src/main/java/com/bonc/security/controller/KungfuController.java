@@ -4,6 +4,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * @program: 页面跳转控制器
@@ -59,5 +60,11 @@ public class KungfuController {
     @GetMapping("/level3/{path}")
     public String level3(@PathVariable("path") String path){
         return PREFIX +"level3/"+path;
+    }
+
+    @ResponseBody
+    @GetMapping("/hello")
+    public String hello(){
+        return "Hello SpringBoot!";
     }
 }

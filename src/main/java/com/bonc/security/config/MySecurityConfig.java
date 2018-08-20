@@ -43,6 +43,7 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter{
         //super.configure(http);
         //定制请求的授权规则
         http.authorizeRequests().antMatchers("/").permitAll()
+                .antMatchers("/hello","/update").authenticated()
                 .antMatchers("/level1/**").hasAuthority("VIP1")
                 .antMatchers("/level2/**").hasAuthority("VIP2")
                 .antMatchers("/level3/**").hasAuthority("VIP3");

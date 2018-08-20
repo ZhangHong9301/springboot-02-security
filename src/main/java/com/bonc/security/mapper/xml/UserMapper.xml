@@ -20,7 +20,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
              where user.username = #{value};
     </select>
 
-    <update id="updatePassword" parameterType="user">
+    <update id="updatePassword" parameterType="string">
         update sys_user set password = #{password} where username = #{username}
     </update>
 
