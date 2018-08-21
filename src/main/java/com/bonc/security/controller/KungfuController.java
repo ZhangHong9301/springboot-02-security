@@ -62,9 +62,4 @@ public class KungfuController {
         return PREFIX +"level3/"+path;
     }
 
-    @ResponseBody
-    @GetMapping("/hello")
-    public String hello(){
-        return "Hello SpringBoot!";
-    }
 }

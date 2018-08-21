@@ -6,7 +6,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
         <!-- 查询用户 -->
     <select id="findByUsername" parameterType="string" resultType="user">
-        select * from sys_user where username = #{value}
+        select * from sys_user where username = #{username}
     </select>
 
     <!-- 查询用户的权限 -->

@@ -14,7 +14,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @Date: 2018/8/16 15:02
  */
 @SpringBootApplication
-//@MapperScan("com.bonc.security.mapper")
 public class Springboot02SecurityApplication {
 
 	public static void main(String[] args) {
