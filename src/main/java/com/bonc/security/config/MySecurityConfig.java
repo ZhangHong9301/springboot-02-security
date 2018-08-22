@@ -42,11 +42,12 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter{
     protected void configure(HttpSecurity http) throws Exception {
         //super.configure(http);
         //定制请求的授权规则
-        http.authorizeRequests().antMatchers("/").permitAll()
+        http.authorizeRequests().antMatchers("/","/userlogin").permitAll()
                 .antMatchers("/hello","/update").authenticated()
                 .antMatchers("/level1/**").hasAuthority("VIP1")
                 .antMatchers("/level2/**").hasAuthority("VIP2")
-                .antMatchers("/level3/**").hasAuthority("VIP3");
+                .antMatchers("/level3/**").hasAuthority("VIP3")
+                .antMatchers("/**").authenticated();
 
         //开启自动配置的登录功能
         //1、/login来到登录页
@@ -55,7 +56,7 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter{
         //4、默认post形式的/login代表处理登录
         //5、一旦定制loginPage、那么loginPage 的post请求就是登录
         http.formLogin().usernameParameter("user").passwordParameter("pwd")
-                .loginPage("/userlogin");
+                .loginPage("/userlogin").failureUrl("/userlogin");
 
         //开启自动配置的注销功能
         //1、访问/logout表示用户注销，清空session
@@ -65,6 +66,8 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter{
         //开启记住我功能
         //登录成功以后，将cookie发给浏览器报错，
         http.rememberMe().rememberMeParameter("remeber");
+
+        http.csrf();
     }
 
     /**

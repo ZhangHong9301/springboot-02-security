@@ -36,21 +36,22 @@ public class MyUserDetailService implements UserDetailsService {
         //根据用户名查询用户信息
         User user = userMapper.findByUsername(username);
 
-        if(user!=null) {
-            //根据用户名查询当前用户所有权限
-            List<Permission> permList = userMapper.findPermissionByUsername(username);
-            //authorities：存放所有用户权限
-            List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-
-            for (Permission perm : permList) {
-                GrantedAuthority authority = new SimpleGrantedAuthority(perm.getPermTag());
-                authorities.add(authority);
-            }
-            //把所有权限赋值给user
-            user.setAuthorities(authorities);
-
-            logger.info("当前用户：" + user);
+        if(user == null) {
+            throw new UsernameNotFoundException("User doesn't exist!");
         }
+        //根据用户名查询当前用户所有权限
+        List<Permission> permList = userMapper.findPermissionByUsername(username);
+        //authorities：存放所有用户权限
+        List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
+
+        for (Permission perm : permList) {
+            GrantedAuthority authority = new SimpleGrantedAuthority(perm.getPermTag());
+            authorities.add(authority);
+        }
+        //把所有权限赋值给user
+        user.setAuthorities(authorities);
+
+        logger.info("当前用户：" + user);
         return user;
     }
 }
