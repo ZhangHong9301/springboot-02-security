@@ -42,7 +42,7 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter{
     protected void configure(HttpSecurity http) throws Exception {
         //super.configure(http);
         //定制请求的授权规则
-        http.authorizeRequests().antMatchers("/","/userlogin").permitAll()
+        http.authorizeRequests().antMatchers("/","/userlogin","/code").permitAll()
                 .antMatchers("/hello","/update").authenticated()
                 .antMatchers("/level1/**").hasAuthority("VIP1")
                 .antMatchers("/level2/**").hasAuthority("VIP2")
