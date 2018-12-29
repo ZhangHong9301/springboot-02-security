@@ -18,6 +18,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 @SpringBootApplication
 @EnableScheduling/*启动注解定时任务*/
+@MapperScan("com.bonc.security.mapper")
 public class Springboot02SecurityApplication {
 
 	public static void main(String[] args) {

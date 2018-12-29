@@ -1,18 +1,26 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+        function refresh() {
+            document.getElementById('captcha_img').src = "/captcha?" + Math.random();
+        }
+	</script>
 </head>
 <body>
 	<h1 align="center">欢迎登陆武林秘籍管理系统</h1>
 	<hr>
 	<div align="center">
 		<form th:action="@{/userlogin}" method="post">
-			用户名:<input  name="user"/><br>
-			密码:<input type="password" name="pwd"/><br/>
-			图形验证码:<input type="text" name="imageCode">
-			<img src="/code"><br/>
+			用户名:<input type="text" placeholder="请输入用户名" name="user"/><br>
+			密  码:<input type="password" placeholder="请输入密码" name="pwd"/><br/>
+			验证码:<input type="text" placeholder="请输入验证码" name="captcha">
+			<!--maxlength="64"
+			style="width: 72px; padding: 1px 12px;"-->
+			<img id="captcha_img" title="点击更换"  alt="验证码"
+				 onclick="refresh()" src="/captcha"><br/>
 
 			<input type="checkbox" name="remeber">记住我<br/>
 			<input type="submit" value="登陆">
